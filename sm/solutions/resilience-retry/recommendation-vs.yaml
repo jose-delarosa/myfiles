@@ -1,0 +1,19 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: recommendation-vs
+  namespace: resilience-retry
+spec:
+  hosts:
+  - recommendation
+  http:
+  - fault:
+      abort:
+        httpStatus: 500
+        percentage:
+          value: 99
+    route:
+    - destination:
+        host: recommendation
+        port:
+          number: 8080

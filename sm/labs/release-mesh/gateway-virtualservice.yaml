@@ -12,6 +12,7 @@ spec:
       port:
         number: 8080
       subset: v2
+    mirror_percent: 20   # If not percentage defined, it does 100%
     route:
     - destination:
         host: gateway

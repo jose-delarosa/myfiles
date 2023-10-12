@@ -1,0 +1,20 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: gateway-vs
+  namespace: release-mesh
+spec:
+  hosts:
+  - gateway
+  http:
+  - mirror:
+      host: gateway
+      port:
+        number: 8080
+      subset: v2
+    route:
+    - destination:
+        host: gateway
+        port:
+          number: 8080
+        subset: v1

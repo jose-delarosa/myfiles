@@ -1,0 +1,24 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: payment-vs
+  namespace: release-mesh
+spec:
+  gateways:
+  - payment-api-gw
+  hosts:
+  - '*' 
+  http:
+  - route:
+    - destination:
+        host: payment
+        port:
+          number: 8080
+        subset: v1
+      weight: 90
+    - destination:
+        host: payment
+        port:
+          number: 8080
+        subset: v2
+      weight: 10

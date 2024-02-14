@@ -8,6 +8,7 @@
                 
     # Ignore anything with the word htpasswd anywhere in the path
     '''htpasswd''',
+    '''wildcard''',
     '''wildcard-api-key''',
 
     # Ignore some long path

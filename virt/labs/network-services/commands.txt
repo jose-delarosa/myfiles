@@ -1,0 +1,1 @@
+oc run testdb -it --rm --image=rhel8/mariadb-105 -n default --command -- mysql --connect-timeout=5 --user=devuser --password=developer --host=mariadb.network-services.svc.cluster.local

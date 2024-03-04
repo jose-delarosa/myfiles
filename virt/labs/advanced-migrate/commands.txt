@@ -1,0 +1,7 @@
+oc get cm kubevirt-storage-class-defaults -n openshift-cnv -o yaml
+
+oc patch -n openshift-cnv cm kubevirt-storage-class-defaults -p '{"data":{"nfs-storage.accessMode":"ReadWriteMany"}}'
+
+oc create -f ~/DO316/labs/advanced-migrate/migrate-vmi.yml -n advanced-migrate
+
+oc delete vmim vm1-migration-job -n advanced-migrate

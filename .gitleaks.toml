@@ -6,9 +6,11 @@
     # Ignore all example certs
     '''\/example.*\.pem$''',
                 
-    # Ignore anything with the word htpasswd anywhere in the path
+    # Ignore anything with these words anywhere in the path
     '''htpasswd''',
     '''wildcard''',
+    '''mariadb-root-password''',
+    '''mariadb-password''',
     '''wildcard-api-key''',
 
     # Ignore some long path

@@ -12,6 +12,8 @@
     '''mariadb-root-password''',
     '''mariadb-password''',
     '''wildcard-api-key''',
+    '''key''',
+    '''json''',
 
     # Ignore some long path
     '''examples\/some\/long\/path\/server.key$''',

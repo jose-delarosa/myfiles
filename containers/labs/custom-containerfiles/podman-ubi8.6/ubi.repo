@@ -1,0 +1,11 @@
+[ubi-8-appstream]
+name = Red Hat AppStream Repo
+baseurl = http://content.example.com/rhel8.6/x86_64/dvd/AppStream
+enabled = 1
+gpgcheck = 0
+
+[ubi-8-baseos]
+name = Red Hat BaseOS Repo
+baseurl = http://content.example.com/rhel8.6/x86_64/dvd/BaseOS
+enabled = 1
+gpgcheck = 0

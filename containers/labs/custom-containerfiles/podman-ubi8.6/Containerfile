@@ -1,0 +1,3 @@
+FROM registry.ocp4.example.com:8443/ubi8/ubi:8.6
+
+ADD ubi.repo /etc/yum.repos.d

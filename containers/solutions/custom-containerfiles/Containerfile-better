@@ -1,0 +1,12 @@
+FROM registry.ocp4.example.com:8443/redhattraining/podman-ubi8.6
+
+WORKDIR /tmp/hello-server
+
+COPY . .
+
+RUN dnf module enable -y nodejs:16 && \
+    dnf install -y \
+    nodejs && \
+    npm install
+
+CMD npm start

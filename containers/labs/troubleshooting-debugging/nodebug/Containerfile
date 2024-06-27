@@ -1,0 +1,20 @@
+FROM registry.ocp4.example.com:8443/ubi8/nodejs-16:1
+
+# WORKDIR /opt/app-root/src
+ENV NPM_CACHE=/tmp/.npm
+
+EXPOSE 8080
+EXPOSE 9229
+
+USER root
+
+RUN npm config set cache "$NPM_CACHE" --location=global
+
+COPY --chown=default:root . .
+
+RUN npm install && chown -R 1001:0 "$NPM_CACHE" && chmod -R ugo+rwx "$NPM_CACHE"
+
+USER default
+
+CMD npm start
+# CMD npm run debug

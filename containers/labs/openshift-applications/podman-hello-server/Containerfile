@@ -1,0 +1,10 @@
+FROM registry.access.redhat.com/ubi8/nodejs-16
+
+ENV NPM_CACHE=/tmp/.npm
+
+RUN npm config set cache "$NPM_CACHE" --location=global
+
+ADD . .
+RUN npm ci --omit=dev && chown -R 1001:0 "$NPM_CACHE" && chmod -R ugo+rwx "$NPM_CACHE"
+
+CMD ["npm", "start"]
